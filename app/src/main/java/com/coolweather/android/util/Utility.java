@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.coolweather.android.db.City;
 import com.coolweather.android.db.County;
-import com.coolweather.android.db.Provice;
+import com.coolweather.android.db.Province;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,10 +29,10 @@ public class Utility {
                 JSONArray allProvinces = new JSONArray(response);
                 for (int i = 0; i < allProvinces.length(); i++) {
                     JSONObject provinceObject = allProvinces.getJSONObject(i);
-                    Provice provice = new Provice();
-                    provice.setProvinceName(provinceObject.getString("name"));
-                    provice.setProvinceCode(provinceObject.getInt("id"));
-                    provice.save();
+                    Province province = new Province();
+                    province.setProvinceName(provinceObject.getString("name"));
+                    province.setProvinceCode(provinceObject.getInt("id"));
+                    province.save();
                 }
                 return true;
             } catch (JSONException e) {
@@ -53,6 +53,7 @@ public class Utility {
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
                     city.setProvinceId(provinceId);
+                    city.save();
                 }
                 return true;
             } catch (JSONException e) {

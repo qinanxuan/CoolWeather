@@ -8,7 +8,7 @@ import org.litepal.crud.LitePalSupport;
  * @package_name com.coolweather.android.db
  * @des 省份实体类
  */
-public class Provice extends LitePalSupport {
+public class Province extends LitePalSupport {
 
     private int id;
     private String provinceName;
